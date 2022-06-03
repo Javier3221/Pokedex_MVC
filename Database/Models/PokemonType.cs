@@ -12,6 +12,7 @@ namespace Database.Models
         public string Name { get; set; }
 
         //Navigation property
-        public ICollection<Pokemon> Pokemon { get; set; }
+        public ICollection<Pokemon> PrimaryPokemon { get; set; }
+        public ICollection<Pokemon> SecondaryPokemon { get; set; }
     }
 }
