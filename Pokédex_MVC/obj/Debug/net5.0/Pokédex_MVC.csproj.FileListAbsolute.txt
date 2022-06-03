@@ -338,8 +338,6 @@ C:\Users\javie\OneDrive\Documents\Tareas\Programacion III\Tarea 2\Pokédex_MVC\P
 C:\Users\javie\OneDrive\Documents\Tareas\Programacion III\Tarea 2\Pokédex_MVC\Pokédex_MVC\obj\Debug\net5.0\Pokédex_MVC.TagHelpers.input.cache
 C:\Users\javie\OneDrive\Documents\Tareas\Programacion III\Tarea 2\Pokédex_MVC\Pokédex_MVC\obj\Debug\net5.0\Pokédex_MVC.TagHelpers.output.cache
 C:\Users\javie\OneDrive\Documents\Tareas\Programacion III\Tarea 2\Pokédex_MVC\Pokédex_MVC\obj\Debug\net5.0\Pokédex_MVC.RazorCoreGenerate.cache
-C:\Users\javie\OneDrive\Documents\Tareas\Programacion III\Tarea 2\Pokédex_MVC\Pokédex_MVC\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\javie\OneDrive\Documents\Tareas\Programacion III\Tarea 2\Pokédex_MVC\Pokédex_MVC\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\javie\OneDrive\Documents\Tareas\Programacion III\Tarea 2\Pokédex_MVC\Pokédex_MVC\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\javie\OneDrive\Documents\Tareas\Programacion III\Tarea 2\Pokédex_MVC\Pokédex_MVC\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\javie\OneDrive\Documents\Tareas\Programacion III\Tarea 2\Pokédex_MVC\Pokédex_MVC\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -387,3 +385,4 @@ C:\Users\javie\OneDrive\Documents\Tareas\Programacion III\Tarea 2\Pokédex_MVC\P
 C:\Users\javie\OneDrive\Documents\Tareas\Programacion III\Tarea 2\Pokédex_MVC\Pokédex_MVC\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\javie\OneDrive\Documents\Tareas\Programacion III\Tarea 2\Pokédex_MVC\Pokédex_MVC\bin\Debug\net5.0\Database.dll
 C:\Users\javie\OneDrive\Documents\Tareas\Programacion III\Tarea 2\Pokédex_MVC\Pokédex_MVC\bin\Debug\net5.0\Database.pdb
+C:\Users\javie\OneDrive\Documents\Tareas\Programacion III\Tarea 2\Pokédex_MVC\Pokédex_MVC\obj\Debug\net5.0\Razor\Views\Pokemon\PokemonListView.cshtml.g.cs
