@@ -26,6 +26,11 @@ namespace Pokédex_MVC.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(SavePokemonViewModel vm)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("SavePokemon", vm);
+            }
+
             await _pokemonService.Add(vm);
             return RedirectToRoute(new { controller="Pokemon", action="PokemonListView"});
         }
@@ -38,6 +43,11 @@ namespace Pokédex_MVC.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(SavePokemonViewModel vm)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("SavePokemon", vm);
+            }
+
             await _pokemonService.Update(vm);
             return RedirectToRoute(new { controller = "Pokemon", action = "PokemonListView" });
         }
@@ -45,6 +55,12 @@ namespace Pokédex_MVC.Controllers
         public async Task<IActionResult> Update(int id)
         {
             return View("SavePokemon", await _pokemonService.GetByIdSaveViewModel(id));
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _pokemonService.Delete(id);
+            return RedirectToRoute(new { controller="Pokemon", action = "PokemonListView" });
         }
     }
 }
