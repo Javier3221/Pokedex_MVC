@@ -56,7 +56,7 @@ namespace Pokédex_MVC
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Pokemon}/{action=PokemonListView}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
