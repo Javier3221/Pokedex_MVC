@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Application.Services;
+using Database;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +10,16 @@ namespace Pokédex_MVC.Controllers
 {
     public class PokemonController : Controller
     {
-        public IActionResult PokemonListView()
+        private readonly PokemonService _pokemonService;
+
+        public PokemonController(ApplicationContext dbContext)
         {
-            return View();
+            _pokemonService = new(dbContext);
+        }
+
+        public async Task<IActionResult> PokemonListView()
+        {
+            return View(await _pokemonService.GetAllViewModel());
         }
     }
 }

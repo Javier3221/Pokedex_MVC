@@ -386,3 +386,5 @@ C:\Users\javie\OneDrive\Documents\Tareas\Programacion III\Tarea 2\Pokédex_MVC\P
 C:\Users\javie\OneDrive\Documents\Tareas\Programacion III\Tarea 2\Pokédex_MVC\Pokédex_MVC\bin\Debug\net5.0\Database.dll
 C:\Users\javie\OneDrive\Documents\Tareas\Programacion III\Tarea 2\Pokédex_MVC\Pokédex_MVC\bin\Debug\net5.0\Database.pdb
 C:\Users\javie\OneDrive\Documents\Tareas\Programacion III\Tarea 2\Pokédex_MVC\Pokédex_MVC\obj\Debug\net5.0\Razor\Views\Pokemon\PokemonListView.cshtml.g.cs
+C:\Users\javie\OneDrive\Documents\Tareas\Programacion III\Tarea 2\Pokédex_MVC\Pokédex_MVC\bin\Debug\net5.0\Application.dll
+C:\Users\javie\OneDrive\Documents\Tareas\Programacion III\Tarea 2\Pokédex_MVC\Pokédex_MVC\bin\Debug\net5.0\Application.pdb

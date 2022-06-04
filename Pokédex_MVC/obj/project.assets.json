@@ -1725,6 +1725,19 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Database": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Application.dll": {}
+        }
+      },
       "Database/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -6381,6 +6394,11 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "Application/1.0.0": {
+      "type": "project",
+      "path": "../Application/Application.csproj",
+      "msbuildProject": "../Application/Application.csproj"
+    },
     "Database/1.0.0": {
       "type": "project",
       "path": "../Database/Database.csproj",
@@ -6389,6 +6407,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Application >= 1.0.0",
       "Database >= 1.0.0",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 5.0.6",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.17",
@@ -6428,6 +6447,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+            "C:\\Users\\javie\\OneDrive\\Documents\\Tareas\\Programacion III\\Tarea 2\\Pokédex_MVC\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\javie\\OneDrive\\Documents\\Tareas\\Programacion III\\Tarea 2\\Pokédex_MVC\\Application\\Application.csproj"
+            },
             "C:\\Users\\javie\\OneDrive\\Documents\\Tareas\\Programacion III\\Tarea 2\\Pokédex_MVC\\Database\\Database.csproj": {
               "projectPath": "C:\\Users\\javie\\OneDrive\\Documents\\Tareas\\Programacion III\\Tarea 2\\Pokédex_MVC\\Database\\Database.csproj"
             }
