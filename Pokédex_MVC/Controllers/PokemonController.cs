@@ -23,6 +23,12 @@ namespace Pokédex_MVC.Controllers
             return View(await _pokemonService.GetAllViewModel());
         }
 
+        [HttpPost]
+        public IActionResult Update(SavePokemonViewModel vm)
+        {
+            return View("SavePokemon", new SavePokemonViewModel());
+        }
+
         public IActionResult Create()
         {
             return View("SavePokemon", new SavePokemonViewModel());

@@ -1,4 +1,4 @@
-﻿@model List<Application.ViewModels.PokemonViewModel>
+﻿@model List<Application.ViewModels.GetPokemonViewModel>
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -34,7 +34,7 @@ else
     </div>
 
     <div class="row mb-2">
-        @foreach (Application.ViewModels.PokemonViewModel item in Model)
+        @foreach (Application.ViewModels.GetPokemonViewModel item in Model)
         {
             <div class="col-md-6">
                 <div class="row g-0 border rounded overflow-auto flex-md-row mb-4 shadow-sm h-md-250 position-relative">
@@ -51,9 +51,9 @@ else
                             }
                         </div>
                         <h3 class="mb-1">@item.Name</h3>
-                        <p class="card-text mb-auto"><strong>@item.RegionId</strong> Region</p>
-                        <p class="card-text mb-auto"><strong>@item.PrimaryTypeId</strong> Type (Primary)</p>
-                        <p class="card-text mb-auto"><strong>@item.SecondaryTypeId</strong> Type (Secondary)</p>
+                        <p class="card-text mb-auto"><strong>@item.Region</strong> Region</p>
+                        <p class="card-text mb-auto"><strong>@item.PrimaryType</strong> Type (Primary)</p>
+                        <p class="card-text mb-auto"><strong>@item.SecondaryType</strong> Type (Secondary)</p>
                         <div class="btn-group" role="group">
                             <a href="https://pokemon.fandom.com/es/wiki/@item.Name" class="stretched-link">Continue Reading</a>
                         </div>

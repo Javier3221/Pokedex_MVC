@@ -1,4 +1,4 @@
-﻿using Application.Repository;
+﻿using Application.Repositories;
 using Application.ViewModels;
 using Database;
 using System;
@@ -13,22 +13,26 @@ namespace Application.Services
     {
         private readonly PokemonRepository _pokemonRepository;
 
+        private readonly RegionRepository _regionRepository;
+
         public PokemonService(ApplicationContext dbContext)
         {
             _pokemonRepository = new(dbContext);
+
+            _regionRepository = new(dbContext);
         }
 
-        public async Task<List<PokemonViewModel>> GetAllViewModel()
+        public async Task<List<GetPokemonViewModel>> GetAllViewModel()
         {
             var pokemonList = await _pokemonRepository.GetAllAsync();
-            return pokemonList.Select(pokemon => new PokemonViewModel
+            return pokemonList.Select(pokemon => new GetPokemonViewModel
             {
                 Id = pokemon.Id,
                 Name = pokemon.Name,
                 ImgUrl = pokemon.ImgUrl,
-                PrimaryTypeId = pokemon.PrimaryTypeId,
-                SecondaryTypeId = pokemon.SecondaryTypeId,
-                RegionId = pokemon.RegionId
+                PrimaryType = "eldiablo",
+                SecondaryType = "eldiablo2",
+                Region = _regionRepository.GetNameById(pokemon.RegionId)
             }).ToList();
         }
     }
