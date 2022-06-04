@@ -15,38 +15,48 @@
 }
 else
 {
-    <div class="row mb-2">
-        @foreach (Application.ViewModels.GetPokemonViewModel item in Model)
-        {
-            <div class="col-md-6">
-                <div class="row g-0 border rounded overflow-auto flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                    <div class="col p-4 d-flex flex-column position-static">
-                        <div class="d-flex">
-                            @if (item.Id < 10)
-                            {
-                                <strong class="d-inline-block mb-2 text-primary">Pokémon no.0</strong>
-                                <strong class="d-inline-block mb-2 text-primary">@item.Id</strong>
-                            }
-                            else
-                            {
-                                <strong class="d-inline-block mb-2 text-primary">Pokémon no.@item.Id</strong>
-                            }
-                        </div>
-                        <h3 class="mb-1">@item.Name</h3>
-                        <p class="card-text mb-auto"><strong>@item.Region</strong> Region</p>
-                        <p class="card-text mb-auto"><strong>@item.PrimaryType</strong> Type (Primary)</p>
-                        <p class="card-text mb-auto"><strong>@item.SecondaryType</strong> Type (Secondary)</p>
-                        <div class="btn-group" role="group">
-                            <button type="button" asp-controller="Pokemon" asp-action="Update" asp-route-id="@item.Id" class="btn btn-outline-success text-dark fw-bold">Edit</button>
-                            <button type="button" asp-controller="Pokemon" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger text-dark fw-bold">Delete</button>
-                        </div>
+<div class="row mb-2">
+    @foreach (Application.ViewModels.GetPokemonViewModel item in Model)
+    {
+        <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-auto flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <div class="d-flex">
+                        <strong class="d-inline-block mb-2 text-primary">@(item.Id < 10 ? $"Pokémon no.0{item.Id}" : $"Pokémon no.{item.Id}")</strong>
                     </div>
-                    <div class="col-auto d-block">
-                        <img class="bd-placeholder-img" width="200" height="250" src="@item.ImgUrl" />
+                    <h3 class="mb-1">@item.Name</h3>
+                    <p class="card-text mb-auto"><strong>@item.Region</strong> Region</p>
+                    <p class="card-text mb-auto"><strong>@item.PrimaryType</strong> Type (Primary)</p>
+                    <p class="card-text mb-auto"><strong>@item.SecondaryType</strong> Type (Secondary)</p>
+                    <div class="btn-group" role="group">
+                        <a asp-controller="Pokemon" asp-action="Update" asp-route-id="@item.Id" class="btn btn-outline-success text-dark fw-bold">Edit</a>
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#deleteModal@(item.Id)" class="btn btn-outline-danger text-dark fw-bold">Delete</button>
                     </div>
                 </div>
+                <div class="col-auto d-block">
+                    <img class="bd-placeholder-img" width="200" height="250" src="@item.ImgUrl" />
+                </div>
             </div>
-        }
-    </div>
+        </div>
+
+        <div class="modal fade" id="deleteModal@(item.Id)" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel@(item.Id)">Delete Pokémon</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                        <div class="modal-body">
+                            Are you sure you want to delete @(item.Id < 10 ? $"Pokémon no.0{item.Id}" : $"Pokémon no.{item.Id}")?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No wait!</button>
+                            <a asp-controller="Pokemon" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-primary">Yes, delete it</a>
+                        </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
 }
 
