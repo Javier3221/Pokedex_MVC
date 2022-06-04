@@ -37,8 +37,8 @@ else
                         <p class="card-text mb-auto"><strong>@item.PrimaryType</strong> Type (Primary)</p>
                         <p class="card-text mb-auto"><strong>@item.SecondaryType</strong> Type (Secondary)</p>
                         <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-outline-success text-dark fw-bold">Edit</button>
-                            <button type="button" class="btn btn-outline-danger text-dark fw-bold">Delete</button>
+                            <button type="button" asp-controller="Pokemon" asp-action="Update" asp-route-id="@item.Id" class="btn btn-outline-success text-dark fw-bold">Edit</button>
+                            <button type="button" asp-controller="Pokemon" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger text-dark fw-bold">Delete</button>
                         </div>
                     </div>
                     <div class="col-auto d-block">
