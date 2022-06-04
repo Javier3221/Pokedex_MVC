@@ -1,0 +1,57 @@
+﻿@model Application.ViewModels.SavePokemonViewModel
+@{
+    bool isEdit = Model.Id == 0 ? false : true;
+    ViewData["Title"] = "Save Pokémon";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card">
+                <div class="card-header bg-dark text-light">
+                    <h2>@(isEdit ? $"Update {Model.Name}'s information" : "Create new Pokémon")</h2>
+                </div>
+
+                <div class="card-body">
+                    <form method="post">
+                        <div class="mb-3">
+                            <label asp-for="Name" class="form-label">Name:</label>
+                            <input type="text" asp-for="Name" class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="ImgUrl" class="form-label">Image:</label>
+                            <input type="text" asp-for="ImgUrl" class="form-control" placeholder="https://examplePage/example.jpg" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="RegionId" class="form-label">Region:</label>
+                            <select class="form-select" asp-for="RegionId">
+                                <option selected>Select region</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="RegionId" class="form-label">Primary Type:</label>
+                            <select class="form-select" asp-for="PrimaryTypeId">
+                                <option selected>Select type</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="SecondaryTypeId" class="form-label">Secondary Type:</label>
+                            <select class="form-select" asp-for="SecondaryTypeId">
+                                <option selected>Select type</option>
+                            </select>
+                        </div>
+
+                        <input type="hidden" asp-for="Id"/>
+
+                        <button type="submit" class="btn btn-outline-primary">Save</button>
+                        <a asp-controller="Pokemon" asp-action="PokemonListView" class="btn btn-outline-danger">Go back</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

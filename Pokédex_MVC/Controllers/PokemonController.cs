@@ -1,4 +1,5 @@
 ﻿using Application.Services;
+using Application.ViewModels;
 using Database;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -20,6 +21,11 @@ namespace Pokédex_MVC.Controllers
         public async Task<IActionResult> PokemonListView()
         {
             return View(await _pokemonService.GetAllViewModel());
+        }
+
+        public IActionResult Create()
+        {
+            return View("SavePokemon", new SavePokemonViewModel());
         }
     }
 }
