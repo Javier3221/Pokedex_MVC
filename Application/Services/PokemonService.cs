@@ -52,6 +52,12 @@ namespace Application.Services
             await _pokemonRepository.EditAsync(pokemon);
         }
 
+        public async Task Delete(int id)
+        {
+            var pokemon = await _pokemonRepository.GetByIdAsync(id);
+            await _pokemonRepository.RemoveAsync(pokemon);
+        }
+
         public async Task<List<GetPokemonViewModel>> GetAllViewModel()
         {
             var pokemonList = await _pokemonRepository.GetAllAsync();
