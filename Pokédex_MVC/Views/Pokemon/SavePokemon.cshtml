@@ -13,7 +13,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form method="post">
+                    <form method="post" asp-controller="Pokemon" asp-action="@(isEdit ? "Update" : "Create")">
                         <div class="mb-3">
                             <label asp-for="Name" class="form-label">Name:</label>
                             <input type="text" asp-for="Name" class="form-control" />
@@ -32,16 +32,24 @@
                         </div>
 
                         <div class="mb-3">
-                            <label asp-for="RegionId" class="form-label">Primary Type:</label>
+                            <label asp-for="PrimaryTypeId" class="form-label">Primary Type:</label>
                             <select class="form-select" asp-for="PrimaryTypeId">
-                                <option selected>Select type</option>
+                                <option selected value="0">Select type</option>
+                                <option value="1">Water</option>
+                                <option value="2">Fire</option>
+                                <option value="3">Earth</option>
+                                <option value="4">Grass</option>
                             </select>
                         </div>
 
                         <div class="mb-3">
                             <label asp-for="SecondaryTypeId" class="form-label">Secondary Type:</label>
                             <select class="form-select" asp-for="SecondaryTypeId">
-                                <option selected>Select type</option>
+                                <option selected value="0">Select type</option>
+                                <option value="1">Water</option>
+                                <option value="2">Fire</option>
+                                <option value="3">Earth</option>
+                                <option value="4">Grass</option>
                             </select>
                         </div>
 
