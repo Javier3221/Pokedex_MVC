@@ -40,6 +40,21 @@ namespace Pokédex_MVC.Controllers
             return View("SaveRegion", new RegionViewModel());
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Update(RegionViewModel vm)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("SaveRegion", vm);
+            }
 
+            await _regionService.Update(vm);
+            return RedirectToRoute(new { controller = "Regions", action = "RegionList" });
+        }
+
+        public async Task<IActionResult> Update(int id)
+        {
+            return View("SaveRegion", await _regionService.GetByIdViewModel(id));
+        }
     }
 }
