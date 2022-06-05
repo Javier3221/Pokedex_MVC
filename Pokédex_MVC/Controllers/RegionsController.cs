@@ -1,4 +1,5 @@
 ﻿using Application.Services;
+using Application.ViewModels;
 using Database;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -20,6 +21,18 @@ namespace Pokédex_MVC.Controllers
         public async Task<IActionResult> RegionList()
         {
             return View(await _regionService.GetAllViewModel());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(RegionViewModel vm)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("SaveRegion", vm);
+            }
+
+            await _regionService.Add(vm);
+            return RedirectToRoute(new { controller = "Region", action = "RegionList" });
         }
     }
 }
