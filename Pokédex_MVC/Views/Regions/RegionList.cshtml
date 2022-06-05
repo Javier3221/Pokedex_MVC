@@ -46,7 +46,7 @@
                             </div>
                             <div class="modal-body">
                                 Are you sure you want to delete @(item.Id < 10 ? $"Region no.0{item.Id}" : $"Region no.{item.Id}")?<br>
-                                All Pokémon associated with this region will be eliminated as well.
+                                All associated Pokémon <span class="text-danger fw-bold">will be eliminated as well.</span>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No wait!</button>

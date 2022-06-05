@@ -56,5 +56,11 @@ namespace Pokédex_MVC.Controllers
         {
             return View("SaveRegion", await _regionService.GetByIdViewModel(id));
         }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _regionService.Delete(id);
+            return RedirectToRoute(new { controller = "Regions", action = "RegionList" });
+        }
     }
 }
