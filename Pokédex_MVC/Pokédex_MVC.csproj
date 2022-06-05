@@ -42,7 +42,6 @@
 
   <ItemGroup>
     <Folder Include="Views\Types\" />
-    <Folder Include="Views\Regions\" />
   </ItemGroup>
 
 </Project>
