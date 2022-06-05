@@ -392,3 +392,4 @@ C:\Users\javie\OneDrive\Documents\Tareas\Programacion III\Tarea 2\Pokédex_MVC\P
 C:\Users\javie\OneDrive\Documents\Tareas\Programacion III\Tarea 2\Pokédex_MVC\Pokédex_MVC\obj\Debug\net5.0\Razor\Views\Pokemon\SavePokemon.cshtml.g.cs
 C:\Users\javie\OneDrive\Documents\Tareas\Programacion III\Tarea 2\Pokédex_MVC\Pokédex_MVC\obj\Debug\net5.0\Razor\Views\Regions\RegionList.cshtml.g.cs
 C:\Users\javie\OneDrive\Documents\Tareas\Programacion III\Tarea 2\Pokédex_MVC\Pokédex_MVC\obj\Debug\net5.0\Razor\Views\Regions\SaveRegion.cshtml.g.cs
+C:\Users\javie\OneDrive\Documents\Tareas\Programacion III\Tarea 2\Pokédex_MVC\Pokédex_MVC\obj\Debug\net5.0\Razor\Views\Types\TypeList.cshtml.g.cs
