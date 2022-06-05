@@ -1,0 +1,32 @@
+﻿@model Application.ViewModels.TypeViewModel
+@{
+    bool isEdit = Model.Id == 0 ? false : true;
+    ViewData["Title"] = "Save Type";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card">
+                <div class="card-header bg-dark text-light">
+                    <h2>@(isEdit ? $"Update {Model.Name}'s information" : "Create new Type")</h2>
+                </div>
+
+                <div class="card-body">
+                    <form method="post" asp-controller="Types" asp-action="@(isEdit ? "Update" : "Create")">
+                        <div class="mb-3">
+                            <label asp-for="Name" class="form-label">Name:</label>
+                            <input type="text" asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <input type="hidden" asp-for="Id" />
+
+                        <button type="submit" class="btn btn-outline-primary">Save</button>
+                        <a asp-controller="Types" asp-action="TypeList" class="btn btn-outline-danger">Go back</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
