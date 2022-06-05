@@ -32,7 +32,14 @@ namespace Pokédex_MVC.Controllers
             }
 
             await _regionService.Add(vm);
-            return RedirectToRoute(new { controller = "Region", action = "RegionList" });
+            return RedirectToRoute(new { controller = "Regions", action = "RegionList" });
         }
+
+        public IActionResult Create()
+        {
+            return View("SaveRegion", new RegionViewModel());
+        }
+
+
     }
 }

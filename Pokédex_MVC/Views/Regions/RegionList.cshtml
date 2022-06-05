@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row mb-3">
         <div class="col-3">
-            <a asp-controller="Region" asp-action="Create" class="btn btn-lg btn-outline-primary">Add new Region</a>
+            <a asp-controller="Regions" asp-action="Create" class="btn btn-lg btn-outline-primary">Add new Region</a>
         </div>
     </div>
 
@@ -27,7 +27,7 @@
                             </div>
                             <h2 class="mb-1">@item.Name</h2>
                             <div class="btn-group mt-auto" role="group">
-                                <a asp-controller="Region" asp-action="Update" asp-route-id="@item.Id" class="btn btn-outline-success text-dark fw-bold">Edit</a>
+                                <a asp-controller="Regions" asp-action="Update" asp-route-id="@item.Id" class="btn btn-outline-success text-dark fw-bold">Edit</a>
                                 <button type="button" data-bs-toggle="modal" data-bs-target="#deleteModal@(item.Id)" class="btn btn-outline-danger text-dark fw-bold">Delete</button>
                             </div>
                         </div>
@@ -50,7 +50,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No wait!</button>
-                                <a asp-controller="Region" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-primary">Yes, delete it</a>
+                                <a asp-controller="Regions" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-primary">Yes, delete it</a>
                             </div>
                         </div>
                     </div>
