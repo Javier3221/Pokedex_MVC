@@ -86,5 +86,15 @@ namespace Application.Services
 
             return vm;
         }
+
+        public async Task<bool> GetTypesAndRegionsCount()
+        {
+            var regions = await _regionRepository.GetAllAsync();
+            var types = await _typeRepository.GetAllAsync();
+
+            bool isEmpty = regions.Count() <= 0 || types.Count() <= 0 ? true : false;
+
+            return isEmpty;
+        }
     }
 }
