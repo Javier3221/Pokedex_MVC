@@ -1,4 +1,4 @@
-﻿using Application.Repositories;
+﻿using Application.Services;
 using Database;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,16 +10,16 @@ namespace Pokédex_MVC.Controllers
 {
     public class RegionsController : Controller
     {
-        private readonly RegionRepository _regionRepository;
+        private readonly RegionService _regionService;
 
         public RegionsController(ApplicationContext dbContext)
         {
-            _regionRepository = new(dbContext);
+            _regionService = new(dbContext);
         }
 
         public async Task<IActionResult> RegionList()
         {
-            return View(await _regionRepository.GetAllAsync());
+            return View(await _regionService.GetAllViewModel());
         }
     }
 }
