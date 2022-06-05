@@ -12,10 +12,14 @@ namespace Pokédex_MVC.Controllers
     public class PokemonController : Controller
     {
         private readonly PokemonService _pokemonService;
+        private readonly RegionService _regionService;
+        private readonly TypeService _typeService;
 
         public PokemonController(ApplicationContext dbContext)
         {
             _pokemonService = new(dbContext);
+            _regionService = new(dbContext);
+            _typeService = new(dbContext);
         }
 
         public async Task<IActionResult> PokemonListView()
@@ -35,8 +39,15 @@ namespace Pokédex_MVC.Controllers
             return RedirectToRoute(new { controller="Pokemon", action="PokemonListView"});
         }
 
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            if (await _pokemonService.GetTypesAndRegionsCount() == true)
+            {
+                return View("ErrorView");
+            }
+            ViewData["Regions"] = await _regionService.GetAllViewModel();
+            ViewData["Types"] = await _typeService.GetAllViewModel();
+
             return View("SavePokemon", new SavePokemonViewModel());
         }
 

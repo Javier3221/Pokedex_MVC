@@ -1,6 +1,7 @@
 ﻿@model List<Application.ViewModels.GetPokemonViewModel>
 @{
     ViewData["Title"] = "Home Page";
+    List<Application.ViewModels.RegionViewModel> regions = ViewData["Regions"] as List<Application.ViewModels.RegionViewModel>;
 }
 
 @if (Model == null || Model.Count() == 0)
@@ -9,7 +10,9 @@
 }
 else
 {
-    <div class="container text-center m-4 d-flex gap-4 align-items-center">
+
+
+<div class="container text-center m-4 d-flex gap-4 align-items-center">
         <h4>Filter by:</h4>
         <div class="d-flex gap-2 align-items-center">
             <strong>Region:</strong>
@@ -18,9 +21,9 @@ else
                     Select Region
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    @foreach (Application.ViewModels.RegionViewModel item in regions) { 
+                        <li><a class="dropdown-item" href="#">@item.Name</a></li>
+                    }
                 </ul>
             </div>
         </div>

@@ -2,6 +2,9 @@
 @{
     bool isEdit = Model.Id == 0 ? false : true;
     ViewData["Title"] = "Save Pokémon";
+
+    List<Application.ViewModels.RegionViewModel> regions = ViewData["Regions"] as List<Application.ViewModels.RegionViewModel>;
+    List<Application.ViewModels.TypeViewModel> types = ViewData["Types"] as List<Application.ViewModels.TypeViewModel>;
 }
 
 <div class="container-fluid">
@@ -30,10 +33,10 @@
                             <label asp-for="RegionId" class="form-label">Region:</label>
                             <select class="form-select" asp-for="RegionId">
                                 <option selected>Select region</option>
-                                <option value="1">Kanto</option>
-                                <option value="2">Unova</option>
-                                <option value="3">Johto</option>
-                                <option value="4">Kalos</option>
+                                @foreach (Application.ViewModels.RegionViewModel item in regions)
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
                             </select>
                             <span asp-validation-for="RegionId" class="text-danger"></span>
                         </div>
@@ -42,10 +45,10 @@
                             <label asp-for="PrimaryTypeId" class="form-label">Primary Type:</label>
                             <select class="form-select" asp-for="PrimaryTypeId">
                                 <option selected>Select type</option>
-                                <option value="1">Water</option>
-                                <option value="2">Fire</option>
-                                <option value="3">Earth</option>
-                                <option value="4">Grass</option>
+                                @foreach (Application.ViewModels.TypeViewModel item in types)
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
                             </select>
                             <span asp-validation-for="PrimaryTypeId" class="text-danger"></span>
                         </div>
@@ -54,10 +57,10 @@
                             <label asp-for="SecondaryTypeId" class="form-label">Secondary Type:</label>
                             <select class="form-select" asp-for="SecondaryTypeId">
                                 <option selected>Select type</option>
-                                <option value="1">Water</option>
-                                <option value="2">Fire</option>
-                                <option value="3">Earth</option>
-                                <option value="4">Grass</option>
+                                @foreach (Application.ViewModels.TypeViewModel item in types)
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
                             </select>
                             <span asp-validation-for="SecondaryTypeId" class="text-danger"></span>
                         </div>
