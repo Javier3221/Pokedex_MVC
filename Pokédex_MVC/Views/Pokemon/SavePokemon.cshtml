@@ -32,7 +32,7 @@
                         <div class="mb-3">
                             <label asp-for="RegionId" class="form-label">Region:</label>
                             <select class="form-select" asp-for="RegionId">
-                                <option selected>Select region</option>
+                                <option selected value="0">Select region</option>
                                 @foreach (Application.ViewModels.RegionViewModel item in regions)
                                 {
                                     <option value="@item.Id">@item.Name</option>
@@ -44,7 +44,7 @@
                         <div class="mb-3">
                             <label asp-for="PrimaryTypeId" class="form-label">Primary Type:</label>
                             <select class="form-select" asp-for="PrimaryTypeId">
-                                <option selected>Select type</option>
+                                <option selected value="0">Select type</option>
                                 @foreach (Application.ViewModels.TypeViewModel item in types)
                                 {
                                     <option value="@item.Id">@item.Name</option>
@@ -56,7 +56,7 @@
                         <div class="mb-3">
                             <label asp-for="SecondaryTypeId" class="form-label">Secondary Type:</label>
                             <select class="form-select" asp-for="SecondaryTypeId">
-                                <option selected>Select type</option>
+                                <option selected value="0">Select type</option>
                                 @foreach (Application.ViewModels.TypeViewModel item in types)
                                 {
                                     <option value="@item.Id">@item.Name</option>

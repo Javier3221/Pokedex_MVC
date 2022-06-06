@@ -14,11 +14,11 @@ namespace Application.ViewModels
         public string Name { get; set; }
         [Required(ErrorMessage = "The image of this Pokémon is required")]
         public string ImgUrl { get; set; }
-        [Required(ErrorMessage = "The primary type of this Pokémon is required")]
+        [Range(1, int.MaxValue, ErrorMessage = "The primary type of this Pokémon is required")]
         public int PrimaryTypeId { get; set; }
-        [Required(ErrorMessage = "The secondary type of this Pokémon is required")]
+        [Range(1, int.MaxValue, ErrorMessage = "The secondary type of this Pokémon is required")]
         public int SecondaryTypeId { get; set; }
-        [Required(ErrorMessage = "The region of this Pokémon is required")]
+        [Range(1, int.MaxValue, ErrorMessage = "The region of this Pokémon is required")]
         public int RegionId { get; set; }
     }
 }
