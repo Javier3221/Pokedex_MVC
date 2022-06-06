@@ -42,5 +42,18 @@ namespace Application.Repositories
             return await _dbContext.Set<Pokemon>().FindAsync(id);
         }
 
+        public async Task<List<Pokemon>> GetAllByRegion(int region)
+        {
+            return await _dbContext.Set<Pokemon>()
+                .Where(pokemon => pokemon.RegionId == region)
+                .ToListAsync();
+        }
+
+        public async Task<List<Pokemon>> GetAllByName(string name)
+        {
+            return await _dbContext.Set<Pokemon>()
+                .Where(pokemon => pokemon.Name.Contains(name))
+                .ToListAsync();
+        }
     }
 }

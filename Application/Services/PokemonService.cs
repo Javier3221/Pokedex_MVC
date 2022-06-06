@@ -72,6 +72,34 @@ namespace Application.Services
             }).ToList();
         }
 
+        public async Task<List<GetPokemonViewModel>> GetAllByRegionViewModel(int region)
+        {
+            var pokemonList = await _pokemonRepository.GetAllByRegion(region);
+            return pokemonList.Select(pokemon => new GetPokemonViewModel
+            {
+                Id = pokemon.Id,
+                Name = pokemon.Name,
+                ImgUrl = pokemon.ImgUrl,
+                PrimaryType = _typeRepository.GetNameById(pokemon.PrimaryTypeId),
+                SecondaryType = _typeRepository.GetNameById(pokemon.SecondaryTypeId),
+                Region = _regionRepository.GetNameById(pokemon.RegionId)
+            }).ToList();
+        }
+
+        public async Task<List<GetPokemonViewModel>> GetAllByNameViewModel(string name)
+        {
+            var pokemonList = await _pokemonRepository.GetAllByName(name);
+            return pokemonList.Select(pokemon => new GetPokemonViewModel
+            {
+                Id = pokemon.Id,
+                Name = pokemon.Name,
+                ImgUrl = pokemon.ImgUrl,
+                PrimaryType = _typeRepository.GetNameById(pokemon.PrimaryTypeId),
+                SecondaryType = _typeRepository.GetNameById(pokemon.SecondaryTypeId),
+                Region = _regionRepository.GetNameById(pokemon.RegionId)
+            }).ToList();
+        }
+
         public async Task<SavePokemonViewModel> GetByIdSaveViewModel(int id)
         {
             var pokemon = await _pokemonRepository.GetByIdAsync(id);
