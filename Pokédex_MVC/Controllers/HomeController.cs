@@ -23,7 +23,21 @@ namespace Pokédex_MVC.Controllers
         public async Task<IActionResult> Index()
         {
             ViewData["Regions"] = await _regionService.GetAllViewModel();
+            ViewData["methodPost"] = false;
             return View(await _pokemonService.GetAllViewModel());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(int region = 0, string name = "")
+        {
+            ViewData["Regions"] = await _regionService.GetAllViewModel();
+            ViewData["methodPost"] = true;
+            if (region != 0)
+            {
+                return View(await _pokemonService.GetAllByRegionViewModel(region));
+            }
+
+            return View(await _pokemonService.GetAllByNameViewModel(name));
         }
     }
 }

@@ -1,44 +1,45 @@
 ﻿@model List<Application.ViewModels.GetPokemonViewModel>
 @{
     ViewData["Title"] = "Home Page";
+    bool methodPost = Convert.ToBoolean(ViewData["methodPost"]);
     List<Application.ViewModels.RegionViewModel> regions = ViewData["Regions"] as List<Application.ViewModels.RegionViewModel>;
 }
 
-@if (Model == null || Model.Count() == 0)
-{
-    <h1>There are no pokémon registered yet :( Gotta catch em' all!</h1>
-}
-else
-{
-
-
+<form method="post" asp-controller="Home" asp-action="Index">
     <div class="container text-center m-4 d-flex gap-4 align-items-center">
         <h4>Filter by:</h4>
         <div class="d-flex gap-2 align-items-center">
             <strong>Region:</strong>
-            <form method="post" asp-controller="Home" asp-action="Index">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Select Region
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        @foreach (Application.ViewModels.RegionViewModel item in regions)
-                        {
-                            <li><button type="submit" class="dropdown-item" asp-route-region="@item.Id">@item.Name</button></li>
-                        }
-                    </ul>
-                </div>
-            </form>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Select Region
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    @foreach (Application.ViewModels.RegionViewModel item in regions)
+                    {
+                        <li><button type="submit" class="dropdown-item" asp-route-region="@item.Id">@item.Name</button></li>
+                    }
+                </ul>
+            </div>
         </div>
         <div class="d-flex align-items-center gap-2">
             <strong class="flex-shrink-0">Pokémon Name:</strong>
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Input Name..." aria-label="Pokémon Name" aria-describedby="button-addon2">
-                <button class="btn btn-outline-primary text-dark fw-bold" type="button" id="button-addon2">Search</button>
+                <input type="text" class="form-control" placeholder="Input Name..." aria-label="Pokémon Name" aria-describedby="button-addon2" id="search-query">
+                <button class="btn btn-outline-primary text-dark fw-bold" type="submit" id="button-addon2">Search</button>
             </div>
         </div>
     </div>
+</form>
 
+@if (Model == null || Model.Count() == 0)
+{
+<div class="container text-center">
+    <h1>@(methodPost ? "No Pokémon match your search, try another one." : "There are no pokémon registered yet :( Gotta catch em' all!")</h1>
+</div>
+}
+else
+{
     <div class="row mb-2">
         @foreach (Application.ViewModels.GetPokemonViewModel item in Model)
         {
