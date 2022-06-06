@@ -6,26 +6,29 @@
 
 @if (Model == null || Model.Count() == 0)
 {
-    <h1>Todavia no hay pokémon registrados. Atrápalos todos!</h1>
+    <h1>There are no pokémon registered yet :( Gotta catch em' all!</h1>
 }
 else
 {
 
 
-<div class="container text-center m-4 d-flex gap-4 align-items-center">
+    <div class="container text-center m-4 d-flex gap-4 align-items-center">
         <h4>Filter by:</h4>
         <div class="d-flex gap-2 align-items-center">
             <strong>Region:</strong>
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    Select Region
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    @foreach (Application.ViewModels.RegionViewModel item in regions) { 
-                        <li><a class="dropdown-item" href="#">@item.Name</a></li>
-                    }
-                </ul>
-            </div>
+            <form method="post" asp-controller="Home" asp-action="Index">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Select Region
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        @foreach (Application.ViewModels.RegionViewModel item in regions)
+                        {
+                            <li><button type="submit" class="dropdown-item" asp-route-region="@item.Id">@item.Name</button></li>
+                        }
+                    </ul>
+                </div>
+            </form>
         </div>
         <div class="d-flex align-items-center gap-2">
             <strong class="flex-shrink-0">Pokémon Name:</strong>
