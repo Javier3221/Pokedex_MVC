@@ -30,17 +30,21 @@ namespace Pokédex_MVC.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(SavePokemonViewModel vm)
         {
+            ViewData["Regions"] = await _regionService.GetAllViewModel();
+            ViewData["Types"] = await _typeService.GetAllViewModel();
+
             if (!ModelState.IsValid)
             {
                 return View("SavePokemon", vm);
             }
-
+            
             await _pokemonService.Add(vm);
             return RedirectToRoute(new { controller="Pokemon", action="PokemonListView"});
         }
 
         public async Task<IActionResult> Create()
         {
+
             if (await _pokemonService.GetTypesAndRegionsCount() == true)
             {
                 return View("ErrorView");
