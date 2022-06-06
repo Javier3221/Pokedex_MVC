@@ -58,6 +58,8 @@ namespace Pokédex_MVC.Controllers
             {
                 return View("SavePokemon", vm);
             }
+            ViewData["Regions"] = await _regionService.GetAllViewModel();
+            ViewData["Types"] = await _typeService.GetAllViewModel();
 
             await _pokemonService.Update(vm);
             return RedirectToRoute(new { controller = "Pokemon", action = "PokemonListView" });
@@ -65,6 +67,9 @@ namespace Pokédex_MVC.Controllers
 
         public async Task<IActionResult> Update(int id)
         {
+            ViewData["Regions"] = await _regionService.GetAllViewModel();
+            ViewData["Types"] = await _typeService.GetAllViewModel();
+
             return View("SavePokemon", await _pokemonService.GetByIdSaveViewModel(id));
         }
 
